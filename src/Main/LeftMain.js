@@ -24,7 +24,7 @@ const LeftMain = ({ user, todos, reload }) => {
       <div className="input-div">
         <input
           type="text"
-          placeholder="add your todo .."
+          placeholder="Add your todo..."
           onChange={(e) => setTodo(e.target.value)}
           autoFocus
           value={todo}
@@ -32,7 +32,7 @@ const LeftMain = ({ user, todos, reload }) => {
         <button onClick={handleSubmit}>Add</button>
         <input
           type="text"
-          placeholder="search..."
+          placeholder="search todo"
           onChange={(e) => setSearchTerm(e.target.value)}
           value={searchTerm}
         />

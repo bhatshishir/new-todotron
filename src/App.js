@@ -1,25 +1,101 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import withFirebaseAuth from "react-with-firebase-auth";
+import firebaseApp from "./firebase";
+import firebase from "firebase/app";
+import { db } from "./firebase";
+import Navbar from "./Navbar/Navbar";
+import Main from "./Main/Main";
+import "./App.css";
 
-function App() {
+const firebaseAppAuth = firebaseApp.auth();
+const providers = {
+  googleProvider: new firebase.auth.GoogleAuthProvider(),
+};
+
+function App({ user, signOut, signInWithGoogle }) {
+  const [pinnedTodos, setPinnedTodos] = useState([]);
+  const [unpinnedTodos, setUnpinnedTodos] = useState([]);
+  const [refresh, setRefresh] = useState(false);
+
+  useEffect(() => {
+    async function checkUserExists() {
+      if (user) {
+        let exists = false;
+        await db
+          .collection("users")
+          .get()
+          .then((snapshot) => {
+            snapshot.forEach((doc) => {
+              if (doc.id === user.uid) {
+                exists = true;
+              }
+            });
+          });
+
+        if (!exists) {
+          await db.collection("users").doc(user.uid).set({});
+          setPinnedTodos([]);
+          setUnpinnedTodos([]);
+        } else {
+          await db
+            .collection("users")
+            .doc(user.uid)
+            .collection("todos")
+            .orderBy("createdAt", "desc")
+            .get()
+            .then((snapshot) => {
+              let pinnedList = [];
+              let unpinnedList = [];
+              snapshot.forEach((doc) => {
+                let data = doc.data();
+                let id = doc.id;
+                if (data.pinned) {
+                  pinnedList.push({ ...data, id });
+                } else {
+                  unpinnedList.push({ ...data, id });
+                }
+              });
+              setPinnedTodos(pinnedList);
+              setUnpinnedTodos(unpinnedList);
+            });
+        }
+      }
+    }
+    checkUserExists();
+  }, [user, refresh]);
+
+  const reload = () => {
+    setRefresh(!refresh);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar signout={signOut} user={user} />
+      <div className="App">
+        {user ? (
+          <Main
+            user={user}
+            pinnedTodos={pinnedTodos}
+            unpinnedTodos={unpinnedTodos}
+            reload={reload}
+          />
+        ) : (
+          <div className="signin-button">
+            <button
+              type="button"
+              className="btn btn-dark"
+              onClick={signInWithGoogle}
+            >
+              Sign in with Google
+            </button>
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
-export default App;
+export default withFirebaseAuth({
+  providers,
+  firebaseAppAuth,
+})(App);

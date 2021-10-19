@@ -8,14 +8,15 @@ const LeftMain = ({ user, todos, reload }) => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleSubmit = () => {
-    db.collection("users").doc(user.uid).collection("todos").add({
-      todo: todo,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      pinned: false,
-    });
-
-    setTodo("");
-    reload();
+    if (todo !== "") {
+      db.collection("users").doc(user.uid).collection("todos").add({
+        todo: todo,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        pinned: false,
+      });
+      setTodo("");
+      reload();
+    }
   };
 
   return (

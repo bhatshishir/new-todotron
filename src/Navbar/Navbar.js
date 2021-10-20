@@ -30,7 +30,7 @@ const Navbar = ({ signout, user }) => {
           <ion-icon name="logo-google"></ion-icon>
         </span>
         {user && (
-          <div className="main">
+          <div className="navbar-main">
             <p className="date ">{formatted_date}</p>
             <div className="user me-3">
               <h2>{user.displayName}</h2>

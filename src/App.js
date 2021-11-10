@@ -18,47 +18,39 @@ function App({ user, signOut, signInWithGoogle }) {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    async function checkUserExists() {
+    function checkUserExists() {
       if (user) {
-        let exists = false;
-        await db
-          .collection("users")
+        db.collection("users")
+          .doc(user.uid)
           .get()
           .then((snapshot) => {
-            snapshot.forEach((doc) => {
-              if (doc.id === user.uid) {
-                exists = true;
-              }
-            });
+            if (!snapshot.exists) {
+              db.collection("users").doc(user.uid).set({});
+              setPinnedTodos([]);
+              setUnpinnedTodos([]);
+            } else {
+              db.collection("users")
+                .doc(user.uid)
+                .collection("todos")
+                .orderBy("createdAt", "desc")
+                .get()
+                .then((snapshot) => {
+                  let pinnedList = [];
+                  let unpinnedList = [];
+                  snapshot.forEach((doc) => {
+                    let data = doc.data();
+                    let id = doc.id;
+                    if (data.pinned) {
+                      pinnedList.push({ ...data, id });
+                    } else {
+                      unpinnedList.push({ ...data, id });
+                    }
+                  });
+                  setPinnedTodos(pinnedList);
+                  setUnpinnedTodos(unpinnedList);
+                });
+            }
           });
-
-        if (!exists) {
-          await db.collection("users").doc(user.uid).set({});
-          setPinnedTodos([]);
-          setUnpinnedTodos([]);
-        } else {
-          await db
-            .collection("users")
-            .doc(user.uid)
-            .collection("todos")
-            .orderBy("createdAt", "desc")
-            .get()
-            .then((snapshot) => {
-              let pinnedList = [];
-              let unpinnedList = [];
-              snapshot.forEach((doc) => {
-                let data = doc.data();
-                let id = doc.id;
-                if (data.pinned) {
-                  pinnedList.push({ ...data, id });
-                } else {
-                  unpinnedList.push({ ...data, id });
-                }
-              });
-              setPinnedTodos(pinnedList);
-              setUnpinnedTodos(unpinnedList);
-            });
-        }
       }
     }
     checkUserExists();

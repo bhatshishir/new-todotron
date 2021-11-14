@@ -25,7 +25,7 @@ const Navbar = ({ signout, user }) => {
 
   return (
     <div className="App">
-      <nav className="navbar navbar-light bg-light ">
+      <nav className="navbar navbar-light  ">
         <span className="navbar-brand mb-0 h1 ms-3 fs-2">
           <ion-icon name="logo-google"></ion-icon>
         </span>

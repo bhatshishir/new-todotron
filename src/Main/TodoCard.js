@@ -23,8 +23,8 @@ const TodoCard = ({
   };
 
   return (
-    <div className="card">
-      <div className="card-body">
+    <div className="card shadow mb-1 bg-white rounded">
+      <div className="card-body ">
         {todo}
         {pin ? (
           <Button variant="dark ms-5" onClick={handlePin}>

@@ -1,7 +1,8 @@
-import { useState } from "react";
+ import { useState } from "react";
 import { db } from "../firebase";
 import TodoCard from "./TodoCard";
 import firebase from "firebase/app";
+import addicon from "../../src/addicon.png"
 
 const LeftMain = ({ user, todos, reload }) => {
   const [todo, setTodo] = useState("");
@@ -21,7 +22,7 @@ const LeftMain = ({ user, todos, reload }) => {
 
   return (
     <div className="left-main">
-      <h2>My todos</h2>
+      <h2 classname="mytodo1" id="heading1">My Todos</h2>
       <div className="input-div">
         <input
           type="text"
@@ -30,7 +31,7 @@ const LeftMain = ({ user, todos, reload }) => {
           autoFocus
           value={todo}
         />
-        <button onClick={handleSubmit}>Add</button>
+        <img src={addicon} alt="add" onClick={handleSubmit}/>
         <input
           type="text"
           placeholder="search todo"

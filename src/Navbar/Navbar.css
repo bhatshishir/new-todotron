@@ -1,5 +1,9 @@
 .navbar-main {
   display: flex;
+ 
+}
+.navbar{
+  background-color: #6459d9;
 }
 
 .user {

@@ -1,3 +1,40 @@
 .web-view {
   display: flex !important;
 }
+
+@media only screen and (max-width: 400px) {
+     div.mobile-view{
+       padding: 0%;
+       padding-top: 0%;
+     }
+     button.tabs{
+       padding-left:-10% !important;
+       display: grid;
+       grid-template-columns: auto auto;
+     
+     }
+     .left-main{
+       padding: 10%;
+       display: grid;
+       grid-template-rows: auto auto;
+       row-gap: 15px;
+     }
+     .mytodo1{
+       color: blue !important;
+       font-family: 'Times New Roman', Times, serif;
+      
+     }
+     .input-div{
+      display: grid;
+      grid-template-columns: 90% 20%;
+      grid-template-rows: auto auto;
+      row-gap: 10px;
+     }
+     .rightmain{
+       padding: 15px;
+     }
+     #heading1{
+       text-align: center;
+       color: #6459d9;
+     }
+}

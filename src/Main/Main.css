@@ -27,6 +27,7 @@
      .input-div{
       display: grid;
       grid-template-columns: 90% 20%;
+      column-gap: 5px;
       grid-template-rows: auto auto;
       row-gap: 10px;
      }
@@ -38,3 +39,18 @@
        color: #6459d9;
      }
 }
+#addicon{
+  width: 40%;
+  }
+  .trash{
+    width:20px;
+    filter:opacity(60%)
+  }
+  .pin{
+    filter:opacity(50%)
+  }
+  #icons{
+    display: flex;
+    float:right;
+  }
+  

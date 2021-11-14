@@ -2,7 +2,7 @@
 import { db } from "../firebase";
 import TodoCard from "./TodoCard";
 import firebase from "firebase/app";
-import addicon from "../../src/addicon.png"
+import addicon from "../../src/addicons.png"
 
 const LeftMain = ({ user, todos, reload }) => {
   const [todo, setTodo] = useState("");
@@ -31,10 +31,10 @@ const LeftMain = ({ user, todos, reload }) => {
           autoFocus
           value={todo}
         />
-        <img src={addicon} alt="add" onClick={handleSubmit}/>
+        <img id="addicon" src={addicon} alt="add" onClick={handleSubmit}/>
         <input
           type="text"
-          placeholder="search todo"
+          placeholder="Search todo"
           onChange={(e) => setSearchTerm(e.target.value)}
           value={searchTerm}
         />

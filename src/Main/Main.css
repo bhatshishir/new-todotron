@@ -6,6 +6,7 @@
      div.mobile-view{
        padding: 0%;
        padding-top: 0%;
+      
      }
      button.tabs{
        padding-left:-10% !important;
@@ -14,10 +15,12 @@
      
      }
      .left-main{
-       padding: 10%;
+       padding: 0%;
        display: grid;
        grid-template-rows: auto auto;
        row-gap: 15px;
+       width: 90% !important;
+       margin: 5% 5% 0% 5% !important;
      }
      .mytodo1{
        color: blue !important;
@@ -30,18 +33,23 @@
       column-gap: 5px;
       grid-template-rows: auto auto;
       row-gap: 10px;
+      
      }
+     
      .rightmain{
        padding: 15px;
+       width: 100% !important;
+       margin: 0%!important;
      }
      #heading1{
        text-align: center;
        color: #6459d9;
      }
+     #addicon{
+      width: 10%;
+      }
 }
-#addicon{
-  width: 40%;
-  }
+
   .trash{
     width:20px;
     filter:opacity(60%)
@@ -52,5 +60,30 @@
   #icons{
     display: flex;
     float:right;
+  }
+  #heading1{
+    color: #6459d9;
+  }
+  .left-main{
+    width:50%;
+    margin:5% 0% 0% 5%;
+    display: grid;
+    grid-template-rows: auto auto auto;
+    row-gap: 20px;
+  }
+  .input-div{
+    grid-template-columns: auto;
+    column-gap: 20px;
+    grid-template-rows: auto auto;
+    row-gap: 10px;
+  }
+  .rightmain{
+    margin: 5% 0% 0% 5%;
+    grid-template-rows: auto auto ;
+    row-gap: 20px;
+    width:35%;
+  }
+  #ip{
+    width: 85%;
   }
   

@@ -24,15 +24,24 @@ const LeftMain = ({ user, todos, reload }) => {
     <div className="left-main">
       <h2 classname="mytodo1" id="heading1">My Todos</h2>
       <div className="input-div">
+        
         <input
+          class="form-control form-control-lg"
+          aria-describedby="basic-addon2"
+          id="ip"
           type="text"
           placeholder="Add your todo..."
           onChange={(e) => setTodo(e.target.value)}
           autoFocus
           value={todo}
         />
+      
         <img id="addicon" src={addicon} alt="add" onClick={handleSubmit}/>
+       
+        
         <input
+          class="form-control form-control-lg"
+          id="ip"
           type="text"
           placeholder="Search todo"
           onChange={(e) => setSearchTerm(e.target.value)}

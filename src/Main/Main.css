@@ -1,6 +1,9 @@
 .web-view {
   display: flex !important;
 }
+audio-react-recorder {
+  display: none;
+}
 
 @media only screen and (max-width: 400px) {
      div.mobile-view{
@@ -72,6 +75,7 @@
     row-gap: 20px;
   }
   .input-div{
+    display: grid;
     grid-template-columns: auto;
     column-gap: 20px;
     grid-template-rows: auto auto;
@@ -85,5 +89,12 @@
   }
   #ip{
     width: 85%;
+  }
+  #card{
+    width: 85%;
+  }
+  #addicon{
+    position: absolute;
+    margin: 1% 43% 0% 43%;
   }
   

@@ -8,6 +8,7 @@ const Main = ({ user, pinnedTodos, unpinnedTodos, reload }) => {
   const [width] = useWindowSize();
   const [view, setView] = useState(true);
   const [active, setActive] = useState(true);
+  
 
   return (
     <div className="main">
@@ -31,7 +32,7 @@ const Main = ({ user, pinnedTodos, unpinnedTodos, reload }) => {
                 aria-selected="true"
                 onClick={() => {
                   setView(true);
-                  setActive(!active);
+                  setActive(true);
                 }}
               >
                 My Todos
@@ -48,7 +49,7 @@ const Main = ({ user, pinnedTodos, unpinnedTodos, reload }) => {
                 aria-selected="false"
                 onClick={() => {
                   setView(false);
-                  setActive(!active);
+                  setActive(false);
                 }}
               >
                 Pinned Todos

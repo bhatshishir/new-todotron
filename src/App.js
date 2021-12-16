@@ -6,6 +6,7 @@ import { db } from "./firebase";
 import Navbar from "./Navbar/Navbar";
 import Main from "./Main/Main";
 import "./App.css";
+import { Toaster } from "react-hot-toast";
 
 const firebaseAppAuth = firebaseApp.auth();
 const providers = {
@@ -65,12 +66,15 @@ function App({ user, signOut, signInWithGoogle }) {
       <Navbar signout={signOut} user={user} />
       <div className="App">
         {user ? (
-          <Main
-            user={user}
-            pinnedTodos={pinnedTodos}
-            unpinnedTodos={unpinnedTodos}
-            reload={reload}
-          />
+           <>
+           <Toaster />
+           <Main
+             user={user}
+             pinnedTodos={pinnedTodos}
+             unpinnedTodos={unpinnedTodos}
+             reload={reload}
+           />
+         </>
         ) : (
           <div className="signin-button">
             <button

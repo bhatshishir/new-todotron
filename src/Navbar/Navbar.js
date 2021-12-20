@@ -1,4 +1,5 @@
 import "./Navbar.css";
+import logo from "../../src/logo1.png"
 
 const Navbar = ({ signout, user }) => {
   const months = [
@@ -27,7 +28,7 @@ const Navbar = ({ signout, user }) => {
     <div className="App">
       <nav className="navbar navbar-light  ">
         <span className="navbar-brand mb-0 h1 ms-3 fs-2">
-          <ion-icon name="logo-google"></ion-icon>
+         <img src={logo} alt="logo" style={{width:"30px"}}/>
         </span>
         {user && (
           <div className="navbar-main">

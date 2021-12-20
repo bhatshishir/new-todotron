@@ -3,7 +3,7 @@ import { useWindowSize } from "../customHook/windowSize";
 import LeftMain from "./LeftMain";
 import RightMain from "./RightMain";
 import "./Main.css";
-//  import { NoEncryption } from "@mui/icons-material";
+
 
 const Main = ({ user, pinnedTodos, unpinnedTodos, reload }) => {
   const [width] = useWindowSize();
@@ -20,7 +20,7 @@ const Main = ({ user, pinnedTodos, unpinnedTodos, reload }) => {
         </div>
       ) : (
         <div className="mobile-view">
-          {/* <button className="tabs" onClick={() => setView(true)}>Todos view</button> */}
+         
           <ul class="nav nav-tabs nav-justified mb-3" id="ex1" role="tablist">
             <li class="nav-item" role="presentation">
               <a
@@ -57,7 +57,7 @@ const Main = ({ user, pinnedTodos, unpinnedTodos, reload }) => {
               </a>
             </li>
           </ul>
-          {/* <button className="tabs" onClick={() => setView(false)}>Pinned Todos view</button> */}
+          
           {view ? (
             <LeftMain
               id="tab-1"

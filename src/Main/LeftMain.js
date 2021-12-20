@@ -7,7 +7,6 @@ import firebase from "firebase/app";
 import DatePicker from "../utils/DatePicker";
 import PriorityDropdown from "../utils/PriorityDropdown";
 import toast from "react-hot-toast";
-import addicon from "../../src/addicons.png"
 import Fab from '@mui/material/Fab';
 import AddIcon from '@mui/icons-material/Add';
 import Button from '@mui/material/Button';
@@ -93,7 +92,7 @@ const LeftMain = ({ user, todos, reload }) => {
             value={todo}
             onKeyDown={(e) => handleSubmit(e)}
           />
-           {/* <img id="addicon" src={addicon} alt="add" onClick={handleSubmit}/> */}
+          
            <Fab color="primary" aria-label="add" id="addicon">
             <AddIcon onClick={handleSubmit} />
             
@@ -105,18 +104,7 @@ const LeftMain = ({ user, todos, reload }) => {
             onStop={onUpload}
             mimeType="audio/mp3"
           />
-          {/* <button
-            onClick={() =>
-              setIsRecording((p) => {
-                if (p === false) {
-                 toast("Recording...");
-                }
-                return !p;
-              })
-            }
-          >
-            {isRecording ? "Recording" : "Add voice task"}
-          </button> */}
+          
           <Button variant="outlined" startIcon={<MicIcon />}
           className="voice"
           onClick={() =>
@@ -160,14 +148,7 @@ const LeftMain = ({ user, todos, reload }) => {
         />
         </div>
 
-         {/* <button
-          onClick={() => {
-            toggleRecording();
-            setIsListening(!isListening);
-          }}
-        >
-          {isListening ? "Listening" : "Voice search"}
-        </button> */}
+
 
         <div><Button variant="outlined" startIcon={<MicIcon />}
             className="voice"

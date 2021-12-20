@@ -3,8 +3,7 @@
  
 }
 .navbar{
-  /* background-color: #6459d9; */
-  /* background-color:rgb(250, 45, 45); */
+  
   background-color:#4F4E73;
 }
 
@@ -23,7 +22,7 @@
   font-size: 12px;
   margin-right: 10px;
   margin-top: 16px;
-  /* color: #464646; */
+  
   color: azure;
   font-weight: bold;
 }

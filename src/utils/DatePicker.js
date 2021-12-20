@@ -2,7 +2,7 @@ import TextField from "@mui/material/TextField";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import MobileDatePicker from "@mui/lab/MobileDatePicker";
-// import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
+
 
 const DatePicker = ({ date, setDate, setNewDate, edit }) => {
   
@@ -12,15 +12,13 @@ const DatePicker = ({ date, setDate, setNewDate, edit }) => {
     } else {
       setDate(newVal);
     }
-    // textField: {
-    //   border:"1px solid blue"
-    // }
+    
   };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <MobileDatePicker
-      // className={DatePicker().textField}
+      
         label="Schedule"
         inputFormat="dd/MM/yyyy"
         value={date}

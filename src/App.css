@@ -1,6 +1,6 @@
 .App-Bar {
   display: flex;
- /* background-color: #f4f6ff;  */
+ 
   min-height: 100vh;
   
   background-color: #0a1929;
@@ -11,12 +11,9 @@
   justify-content: center;
   align-items: center;
   height: 80vh;
-  /* background-image: url('C:\Users\shishir bhat\Desktop\new todotron\todotron\src\bgimage.jpg'); */
+ 
 }
-/* div.welcomepage{
-  display: grid;
-  grid-template-rows: auto auto auto;
-} */
+
 
 #wtext {
   background: linear-gradient(

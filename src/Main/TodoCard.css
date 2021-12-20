@@ -1,11 +1,7 @@
 .dropdown {
     margin-top: 10px;
   }
-  /* #insidecard{
-    display: grid;
-    grid-template-columns: 60% auto auto auto auto auto;
-    background-color: rgb(180, 175, 175);
-  } */
+  
   .audio{
     margin: 0;
 padding: 0;

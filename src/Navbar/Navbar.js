@@ -33,8 +33,8 @@ const Navbar = ({ signout, user }) => {
           <div className="navbar-main">
             <p className="date ">{formatted_date}</p>
             <div className="user me-3">
-              <h2>{user.displayName}</h2>
-              <img src={user.photoURL} alt={user.name} />
+              <h2 className="username">{user.displayName}</h2>
+              <img src={user.photoURL} alt={user.name}  />
             </div>
             <span className="signout h1 fs-2 me-3" onClick={signout}>
               {" "}

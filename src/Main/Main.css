@@ -1,5 +1,7 @@
 .web-view {
   display: flex !important;
+  /* background: hsl(204 100% 5%); */
+  
 }
 audio-react-recorder {
   display: none;
@@ -9,7 +11,7 @@ audio-react-recorder {
      div.mobile-view{
        padding: 0%;
        padding-top: 0%;
-      
+       height: 100vh;
      }
      button.tabs{
        padding-left:-10% !important;
@@ -18,7 +20,7 @@ audio-react-recorder {
      
      }
      .left-main{
-       padding: 0%;
+       padding: 3%;
        display: grid;
        grid-template-rows: auto auto;
        row-gap: 15px;
@@ -36,7 +38,7 @@ audio-react-recorder {
       column-gap: 5px;
       grid-template-rows: auto auto;
       row-gap: 10px;
-      
+      width: 85vw;
      }
      
      .rightmain{
@@ -47,18 +49,73 @@ audio-react-recorder {
      #heading1{
        text-align: center;
        color: #6459d9;
+       width: 85vw;
      }
      #addicon{
-      width: 10%;
+      position: absolute !important;
+      margin: -13% 38% 0% 70% !important;
+  
       }
+     
+      .search-div{
+        width:85vw;
+      }
+      #ip2{
+        width:85vw !important;
+      }
+      #insidecard{
+        display: grid;
+        grid-template-columns: 30% auto auto auto auto auto !important;
+        background-color: white;
+      }
+      #card{
+        width: 85vw !important;
+      }
+      .rightmain .todos-div #card{
+        width:100% !important
+      }
+      p.date{
+        display:none;
+      }
+      h2.username{
+        display:none;
+      }
+      #wtext2{
+        text-align: center;
+      }
+      #but{
+        margin-left: 29% !important;
+      
+      }
+      .signin-button {
+        display: grid;
+        grid-template-rows: 20% 5% 20% !important;
+        background: hsl(204 100% 5%);
+        place-content: center;
+        height: 100vh;
+    }
+    .page1text{
+      display: grid;
+      grid-template-rows: 30% 30% 30%;
+      row-gap: 6vh;
+      position: absolute;
+      margin-top: -40vh;
+    }
+    .voice{
+      width: 45vw !important;
+      
+    }
 }
 
-  .trash{
+  /* .trash{
     width:20px;
-    filter:opacity(60%)
-  }
-  .pin{
-    filter:opacity(50%)
+    filter:opacity(10%)
+  } */
+  
+  .unpin{
+    margin-top: 8px;
+    cursor: pointer;
+    /* filter:opacity(60%) */
   }
   #icons{
     display: flex;
@@ -68,11 +125,11 @@ audio-react-recorder {
     color: #6459d9;
   }
   .left-main{
-    width:50%;
+    width:50vw !important;
     margin:5% 0% 0% 5%;
-    display: grid;
-    grid-template-rows: auto auto auto;
-    row-gap: 20px;
+    /* display: grid;
+    grid-template-rows: auto auto auto;    //large text doesnt overflow when these statements are commented.but the icons(pin,edit,trash) get disturbed.
+    row-gap: 20px; */ 
   }
   .input-div{
     display: grid;
@@ -80,6 +137,12 @@ audio-react-recorder {
     column-gap: 20px;
     grid-template-rows: auto auto;
     row-gap: 10px;
+    
+  }
+  .input{
+    display: grid;
+    grid-template-rows: auto auto auto ;
+    row-gap: 20px;
   }
   .rightmain{
     margin: 5% 0% 0% 5%;
@@ -87,14 +150,64 @@ audio-react-recorder {
     row-gap: 20px;
     width:35%;
   }
-  #ip{
-    width: 85%;
+  #ip1{
+    width: 80%;
+  }
+  #ip2{
+    width: 80%;
+  }
+  .voice{
+    width: 15vw;
+    
   }
   #card{
-    width: 85%;
+    width: 90%;
   }
   #addicon{
     position: absolute;
-    margin: 1% 43% 0% 43%;
+    margin: -4% 38% 0% 41%;
   }
-  
+  .edit{
+    width: 22px;
+    filter:opacity(50%);
+   
+  }
+  .main{
+    /* height: 100vh; */
+    background-image: url("../bgimage4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode:saturation;
+    /* background-attachment: fixed; */
+    background-color: rgba(200,100,0,.6); /* Tint color */
+    background-blend-mode: multiply;
+   
+  }
+  #insidecard{
+    display: grid;
+    grid-template-columns: 50% auto auto auto auto auto;
+    background-color: white;
+  }
+ 
+ 
+  .schedprior{
+    display: grid;
+    grid-template-columns: 40% 40%;
+    column-gap: 10%;
+  }
+  .search-div{
+    display: grid;
+    grid-template-rows: auto auto;
+    row-gap: 15px;
+  }
+  .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+    color:white !important;
+  }
+  .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+    border-color: white !important;
+  }
+  .css-1kty9di-MuiFormLabel-root-MuiInputLabel-root{
+    color:white !important;
+  }
+

@@ -8,6 +8,7 @@ import Main from "./Main/Main";
 import "./App.css";
 import { Toaster } from "react-hot-toast";
 
+
 const firebaseAppAuth = firebaseApp.auth();
 const providers = {
   googleProvider: new firebase.auth.GoogleAuthProvider(),
@@ -77,13 +78,25 @@ function App({ user, signOut, signInWithGoogle }) {
          </>
         ) : (
           <div className="signin-button">
+            <div className="page1text">
+            <div className="welcomepage">
+              <h1 id="wtext">Welcome to Todotron!</h1>
+              </div>
+              <div>
+              <h5 id="wtext2">The place where you can list your tasks, schedule and prioritize them. 
+                </h5>
+                </div>
+              <div>
             <button
+              id="but"
               type="button"
               className="btn btn-dark"
               onClick={signInWithGoogle}
             >
               Sign in with Google
             </button>
+            </div>
+            </div>
           </div>
         )}
       </div>

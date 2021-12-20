@@ -5,17 +5,22 @@ import MobileDatePicker from "@mui/lab/MobileDatePicker";
 // import DesktopDatePicker from "@mui/lab/DesktopDatePicker";
 
 const DatePicker = ({ date, setDate, setNewDate, edit }) => {
+  
   const handleDateChange = (newVal) => {
     if (edit) {
       setNewDate(newVal);
     } else {
       setDate(newVal);
     }
+    // textField: {
+    //   border:"1px solid blue"
+    // }
   };
 
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns}>
       <MobileDatePicker
+      // className={DatePicker().textField}
         label="Schedule"
         inputFormat="dd/MM/yyyy"
         value={date}

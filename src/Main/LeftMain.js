@@ -8,6 +8,11 @@ import DatePicker from "../utils/DatePicker";
 import PriorityDropdown from "../utils/PriorityDropdown";
 import toast from "react-hot-toast";
 import addicon from "../../src/addicons.png"
+import Fab from '@mui/material/Fab';
+import AddIcon from '@mui/icons-material/Add';
+import Button from '@mui/material/Button';
+import MicIcon from '@mui/icons-material/Mic';
+
 
 const LeftMain = ({ user, todos, reload }) => {
   const [todo, setTodo] = useState("");
@@ -73,14 +78,14 @@ const LeftMain = ({ user, todos, reload }) => {
 
   return (
     <div className="left-main">
-      <h1 classname="mytodo1" id="heading1">My Todos</h1>
+      <div><h1 classname="mytodo1" id="heading1">My Todos</h1></div>
       <div className="input-div">
         
       <div className="input">
-          <input
+          <div><input
             class="form-control form-control-lg"
             aria-describedby="basic-addon2"
-            id="ip"
+            id="ip1"
             type="text"
             placeholder="Add tasks and todos..."
             onChange={(e) => setTodo(e.target.value)}
@@ -88,14 +93,19 @@ const LeftMain = ({ user, todos, reload }) => {
             value={todo}
             onKeyDown={(e) => handleSubmit(e)}
           />
-           <img id="addicon" src={addicon} alt="add" onClick={handleSubmit}/>
-          <ReactMic
+           {/* <img id="addicon" src={addicon} alt="add" onClick={handleSubmit}/> */}
+           <Fab color="primary" aria-label="add" id="addicon">
+            <AddIcon onClick={handleSubmit} />
+            
+           </Fab>
+           </div>
+          <div><ReactMic
             record={isRecording}
             className="d-none"
             onStop={onUpload}
             mimeType="audio/mp3"
           />
-          <button
+          {/* <button
             onClick={() =>
               setIsRecording((p) => {
                 if (p === false) {
@@ -106,39 +116,70 @@ const LeftMain = ({ user, todos, reload }) => {
             }
           >
             {isRecording ? "Recording" : "Add voice task"}
-          </button>
-          <PriorityDropdown
-            setPriority={setPriority}
-            priority={priority}
-            edit={false}
-          />
+          </button> */}
+          <Button variant="outlined" startIcon={<MicIcon />}
+          className="voice"
+          onClick={() =>
+              setIsRecording((p) => {
+                if (p === false) {
+                 toast("Recording...");
+                }
+                return !p;
+              })
+            }
+          >
+            {isRecording ? "Recording" : "Add voice task"}
+        
+      </Button>
+      </div>
+          <div className="schedprior">
           <DatePicker
             date={date}
             setDate={setDate}
             edit={false}
             setNewDate={null}
           />
+          <PriorityDropdown
+            setPriority={setPriority}
+            priority={priority}
+            edit={false}
+          />
+          </div>
+        </div>
         </div>
 
-        <input
+        <div className="search-div">
+       <div> <input
           class="form-control form-control-lg"
-          id="ip"
+          id="ip2"
           type="text"
           placeholder="Search todo"
           onChange={(e) => setSearchTerm(e.target.value)}
           value={searchTerm}
+        
         />
+        </div>
 
-         <button
+         {/* <button
           onClick={() => {
             toggleRecording();
             setIsListening(!isListening);
           }}
         >
           {isListening ? "Listening" : "Voice search"}
-        </button>
+        </button> */}
 
-      </div>
+        <div><Button variant="outlined" startIcon={<MicIcon />}
+            className="voice"
+           onClick={() => {
+            toggleRecording();
+            setIsListening(!isListening);
+          }}
+        >
+          {isListening ? "Listening" : "Voice search"}
+        </Button>
+        </div>
+      
       <div className="todos-div">
         {todos
           .filter((v) =>
@@ -148,6 +189,7 @@ const LeftMain = ({ user, todos, reload }) => {
             <TodoCard t={t} key={t.id} user={user} reload={reload} pin={true} />
           ))}
       </div>
+    </div>
     </div>
   );
 };

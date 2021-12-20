@@ -3,6 +3,7 @@ import { useWindowSize } from "../customHook/windowSize";
 import LeftMain from "./LeftMain";
 import RightMain from "./RightMain";
 import "./Main.css";
+//  import { NoEncryption } from "@mui/icons-material";
 
 const Main = ({ user, pinnedTodos, unpinnedTodos, reload }) => {
   const [width] = useWindowSize();
@@ -11,7 +12,7 @@ const Main = ({ user, pinnedTodos, unpinnedTodos, reload }) => {
   
 
   return (
-    <div className="main">
+    <div className="main" >
       {width > 400 ? (
         <div className="web-view">
           <LeftMain user={user} todos={unpinnedTodos} reload={reload} />

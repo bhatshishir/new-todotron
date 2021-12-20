@@ -9,9 +9,15 @@ import TextField from "@mui/material/TextField";
 import DatePicker from "../utils/DatePicker";
 import PriorityDropdown from "../utils/PriorityDropdown";
 import "./TodoCard.css";
-import deleteicon from "../../src/trash.png"
-import pinicon from "../../src/pin.png"
-import unpinicon from "../../src/unpin.png"
+import deleteicon from "../../src/trash.png";
+import pinicon from "../../src/pin.png";
+import unpinicon from "../../src/unpin.png";
+import editicon from "../../src/editicon.png";
+// import Button from '@mui/material/Button';
+import DeleteIcon from '@mui/icons-material/Delete';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
+import PinIcon from '@mui/icons-material/PushPin';
 
 const TodoCard = ({
   t: { todo, id, createdAt, pinned,type,fname, priority, date},
@@ -68,7 +74,7 @@ const TodoCard = ({
       <div className="card-body " id="insidecard">
       {type === "text" && todo}
         {type === "audio" && (
-          <audio controls style={{ outline: "none" }}>
+          <audio className="audio" controls style={{ outline: "none" }}>
             <source src={todo} type="audio/mp3" />
           </audio>
         )}
@@ -78,18 +84,29 @@ const TodoCard = ({
           //  <Button variant="dark ms-5" onClick={handlePin}>
           //   Pin
           // </Button>
-          <img src={ pinicon } className="pin" id="icons" alt="pin" onClick={handlePin}/>
+          // <img src={ pinicon } className="pin" id="icons" alt="pin" onClick={handlePin}/>
+          <IconButton aria-label="pin">
+        <PinIcon onClick={handlePin} style={{fill: "rgb(38, 166, 154)"}} />
+      </IconButton>
         ) : (
           // <Button variant="dark ms-5" onClick={handlePin}>
           //   Unpin
           // </Button>
-          <img src={ unpinicon } className="pin" id="icons" alt="pin" onClick={handlePin}/>
+          <img src={ unpinicon } className="unpin" id="icons" alt="pin" onClick={handlePin} />
         )}
-        <img src={deleteicon} className="trash" id="icons" alt="delete" onClick={handleDelete}/>
+        {/* <img src={editicon} className="edit" id="icons" alt="edit" onClick={handleShow}/> */}
+        <IconButton aria-label="edit">
+        <EditIcon onClick={handleShow}  style={{fill: "rgb(104, 159, 56)"}}/>
+      </IconButton>
+        {/* <img src={deleteicon} className="trash" id="icons" alt="delete" onClick={handleDelete}/> */}
+        <IconButton aria-label="delete">
+        <DeleteIcon onClick={handleDelete} style={{fill: "rgb(213, 0, 0)"}}/>
+      </IconButton>
         {/* <Button variant="danger ms-5" onClick={handleDelete}>
          Delete
         </Button> */}
-          <Button onClick={handleShow}>Edit</Button>
+          {/* <Button onClick={handleShow}>Edit</Button> */}
+          {/* <img src={editicon} className="edit" id="icons" alt="edit" onClick={handleShow}/> */}
       </div>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>

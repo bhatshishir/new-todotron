@@ -3,7 +3,9 @@
  
 }
 .navbar{
-  background-color: #6459d9;
+  /* background-color: #6459d9; */
+  /* background-color:rgb(250, 45, 45); */
+  background-color:#4F4E73;
 }
 
 .user {
@@ -18,21 +20,26 @@
 }
 
 .user h2 {
-  font-size: 14px;
+  font-size: 12px;
   margin-right: 10px;
-  margin-top: 15px;
-  color: #464646;
+  margin-top: 16px;
+  /* color: #464646; */
+  color: azure;
+  font-weight: bold;
 }
 
 .signout {
   cursor: pointer;
   margin-top: 6px;
 }
+.signout:hover{
+  opacity: 0.4;
+}
 
 .date {
-  margin-top: 16px;
+  margin-top: 14px;
   margin-right: 60px;
-  font-weight: 500;
-  color: #9a9a9a;
+  font-weight: bold;
+  color: white;
   font-size: 12px;
 }

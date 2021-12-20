@@ -7,3 +7,15 @@
 padding: 0;
 height: 40px;
   }
+  .mbody .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
+    color: black !important;
+    opacity: 0.8;
+  }
+  .mbody .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+    border-color:  black !important;
+    opacity: 0.8;
+  }
+  .mbody .css-1kty9di-MuiFormLabel-root-MuiInputLabel-root{
+    color: black !important;
+    opacity: 0.6;
+  } 

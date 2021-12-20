@@ -10,10 +10,12 @@ import DatePicker from "../utils/DatePicker";
 import PriorityDropdown from "../utils/PriorityDropdown";
 import "./TodoCard.css";
 import unpinicon from "../../src/unpin.png";
+// import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import IconButton from '@mui/material/IconButton';
 import EditIcon from '@mui/icons-material/Edit';
 import PinIcon from '@mui/icons-material/PushPin';
+
 
 const TodoCard = ({
   t: { todo, id, createdAt, pinned,type,fname, priority, date},
@@ -99,7 +101,7 @@ const TodoCard = ({
         <Modal.Header closeButton>
           <Modal.Title>Edit Task</Modal.Title>
         </Modal.Header>
-        <Modal.Body style={{ display: "flex", flexDirection: "column" }}>
+        <Modal.Body className="mbody" style={{ display: "flex", flexDirection: "column" }}>
         {type == "text" && (
             <TextField
               className="mb-3"

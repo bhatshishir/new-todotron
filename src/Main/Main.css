@@ -200,11 +200,14 @@ audio-react-recorder {
   }
   .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input{
     color:white !important;
+    opacity: 0.8;
   }
   .css-1d3z3hw-MuiOutlinedInput-notchedOutline{
     border-color: white !important;
+    opacity: 0.7;
   }
   .css-1kty9di-MuiFormLabel-root-MuiInputLabel-root{
     color:white !important;
+    opacity: 0.6;
   }
 
